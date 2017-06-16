@@ -24,7 +24,7 @@ def calc(x):
                 Debetovaya = x[i]*list(ver_var_Debetovaya.values())[j]
         for k in range(0,len(ver_var_Classic)-1):
             if i==list(ver_var_Classic.keys())[k]:
-                Classic = x[i]*list(ver_var_Classic())[k]
+                Classic = x[i]*list(ver_var_Classic.values())[k]
         for l in range(0,len(ver_var_Bonusnaya)-1):
             if i==list(ver_var_Bonusnaya.keys())[l]:
                 Bonusnaya = x[i]*list(ver_var_Bonusnaya.values())[l]
