@@ -27,7 +27,7 @@ def calc(x):
                 Classic = x[i]*list(ver_var_Classic())[k]
         for l in range(0,len(ver_var_Bonusnaya)-1):
             if i==list(ver_var_Bonusnaya.keys())[l]:
-                Bonusnaya = x[i]*list(ver_var_Sams_S7.values())[l]
+                Bonusnaya = x[i]*list(ver_var_Bonusnaya.values())[l]
         for m in range(0,len(ver_var_CashBack)-1):
             if i==list(ver_var_CashBack.keys())[m]:
                 CashBack = x[i]*list(ver_var_CashBack.values())[m]
@@ -73,8 +73,8 @@ def wsgi_app(environ, start_response):
         try:
             for i in range(0,len(x)-1):
                 x[i]=float(x[i])
-            #y=calc(x)
-            response_body=str(x[0])
+            y=calc(x)
+            response_body="Дебетовая: "+str(y[0])+"<br>"+"Классик: "+str(y[1])+"<br>"+"классическое обслуживание: "+str(y[2])+"<br>"+"Бонусная: "+str(y[3])+"<br>"+"Cash back: "+str(y[4])+"<br>"+"Рубли: "+str(y[5])+"<br>"+" На юридическое лицо: "+str(y[6])+"<br>"+"Visa: "+str(y[7])+"<br>"+"Корпоративная: "+str(y[8])+"<br>"+"Индивидуальная: "+str(y[9])+"<br>"
             start_response(status, response_headers)
             yield response_body.encode()
         except:
