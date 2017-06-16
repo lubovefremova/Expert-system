@@ -7,7 +7,6 @@ html = """Введите значения в интервале от 0 до 1 в
 <form method="get">С cash back?<input name="Answer5"></input><br>
 <form method="get">Доллары?<input name="Answer6"></input><br>
 <form method="get">На физическое/юридические лицо?<input name="Answer7"></input><br>
-<form method="get">MasterCard?<input name="Answer8"></input><br>
 <button>OK</button></form>"""
 def calc(x):
     ver_var_Debetovaya = {0:0.1, 1:1, 2:0, 3:0, 6:0, 7:1}
@@ -17,6 +16,7 @@ def calc(x):
     ver_var_Rubls = {0:0.1, 1:0, 2:1, 3:0, 6:1, 8:1}
     ver_var_Na_ur_litso = {0:0.1, 1:0, 2:0, 3:1, 6:0, 7:1}
     ver_var_Korporativnaya = {0:0.1, 1:0, 2:0, 3:1, 6:1, 7:1}
+  
     
     for i in range(0,len(x)-1):
         for j in range(0,len(ver_var_Debetovaya)-1):
@@ -74,7 +74,7 @@ def wsgi_app(environ, start_response):
             for i in range(0,len(x)-1):
                 x[i]=float(x[i])
             y=calc(x)
-            response_body="Дебетовая: "+str(y[0])+"<br>"+"Классик: "+str(y[1])+"<br>"+"классическое обслуживание: "+str(y[2])+"<br>"+"Бонусная: "+str(y[3])+"<br>"+"Cash back: "+str(y[4])+"<br>"+"Рубли: "+str(y[5])+"<br>"+" На юридическое лицо: "+str(y[6])+"<br>"+"Visa: "+str(y[7])+"<br>"+"Корпоративная: "+str(y[8])+"<br>"+"Индивидуальная: "+str(y[9])+"<br>"
+            response_body="Дебетовая: "+str(y[0])+"<br>"+"Классик: "+str(y[1])+"<br>"+"классическое обслуживание: "+str(y[2])+"<br>"+"Бонусная: "+str(y[3])+"<br>"+"Cash back: "+str(y[4])+"<br>"+"Рубли: "+str(y[5])+"<br>"+" На юридическое лицо: "+str(y[6])+"<br>"   
             start_response(status, response_headers)
             yield response_body.encode()
         except:
